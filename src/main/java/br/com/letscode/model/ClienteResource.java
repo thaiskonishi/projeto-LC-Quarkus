@@ -7,6 +7,7 @@ import java.util.Optional;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -38,7 +39,7 @@ public class ClienteResource {
     }
 
     @POST
-    public Response insertClient(ClienteForm clienteForm) {
+    public Response insertClient(@Valid ClienteForm clienteForm) {
         Cliente novoCliente = clienteForm.converter();
         clienteService.cadastraCliente(novoCliente);
         URI uri = UriBuilder.fromPath("/cliente/{id}").build(novoCliente.getId());
@@ -47,7 +48,7 @@ public class ClienteResource {
 
     @PUT
     @Path("/{id}")
-    public Response alteraDados(@PathParam("id") Long id, @RequestBody ClienteForm clienteForm) {  
+    public Response alteraDados(@PathParam("id") Long id, @Valid @RequestBody ClienteForm clienteForm) {  
     Cliente cliente = clienteService.alteraDados(clienteForm, id);
     if (cliente != null) {
         return Response.status(Response.Status.OK).entity(new ClienteDto(cliente)).build();
