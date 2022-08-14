@@ -38,40 +38,33 @@ public class ClienteResource {
     }
 
     @POST
-    public Response insertClient(ClienteForm cliente) {
-        Cliente novoCliente = cliente.converter();
+    public Response insertClient(ClienteForm clienteForm) {
+        Cliente novoCliente = clienteForm.converter();
         clienteService.cadastraCliente(novoCliente);
-        URI uri = UriBuilder.fromPath("/client/details/{id}").build(novoCliente.getId());
+        URI uri = UriBuilder.fromPath("/cliente/{id}").build(novoCliente.getId());
         return Response.created(uri).build();
     }
 
-    // @PUT("/{id}")
-    // public void alteraDados(@PathVariable Long id, @RequestBody ClienteForm form)
-    // {
-    // Optional<Cliente> optional = Cliente.findByIdentificador(id);
-    // if(optional.isPresent()){
-    // Cliente cliente = form.alterarDados(id, clienteRepository);
-
-    // }
-
+    @PUT
+    @Path("/{id}")
+    public Response alteraDados(@PathParam("id") Long id, @RequestBody ClienteForm clienteForm) {  
+    Cliente cliente = clienteService.alteraDados(clienteForm, id);
+    if (cliente != null) {
+        return Response.status(Response.Status.OK).entity(new ClienteDto(cliente)).build();
+    }
+    return Response.status(Response.Status.NOT_FOUND).build();
+    
+    }
     // o clientForm é pra pegar no corpo da requisição e não da url
-
-    // @POST(" ")
-    // public Cliente cadastrar(String vatnumber,String nome,String email,int idade)
-    // {
-    // Cliente entity = new Cliente();
-    // entity.setNome(nome);
-    // entity.setIdade(idade);
-    // entity.setVatnumber(vatnumber);
-    // entity.setEmail(email);
-    // clienteRepository.persist(entity);
-
-    // }
-
-    // @DELETE
-    // @Path("/{id}")
-    // public void deletar(@PathParam Long id) {
-    //     clienteRepository.deleteById(id);
-    // }
-
+  
+    @DELETE
+    @Path("/{id}")
+    public Response deletar(@PathParam("id") Long id) {
+        Cliente cliente = clienteService.deletaCliente(id);
+        if (cliente != null) {
+            return Response.status(Response.Status.OK).entity(new ClienteDto(cliente)).build();
+        }
+        return Response.status(Response.Status.NOT_FOUND).build();
+    }
+    
 }

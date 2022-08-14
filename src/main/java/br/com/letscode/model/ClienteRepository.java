@@ -23,7 +23,7 @@ public class ClienteRepository implements PanacheRepository<Cliente> {
         return find("from Cliente where id = :id", Parameters.with("id", id)).firstResult();
     }
 
-    // public Long deleteById(Long id) {
-    //     return delete("where id = :id", Parameters.with("id", id));
+    // public Cliente deleteById(Long id) {
+    //      return delete("where id = :id", Parameters.with("id", id));
     // }
 }
