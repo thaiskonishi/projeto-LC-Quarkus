@@ -13,3 +13,5 @@ INSERT INTO CLIENTE(vatnumber,nome, email, idade) VALUES('IT444555888','Fabio', 
 INSERT INTO CLIENTE(vatnumber,nome, email, idade) VALUES('FR222333777','Greta', 'greta@email.com', '32');
 INSERT INTO CLIENTE(vatnumber,nome, email, idade) VALUES('IE777444555','Helio', 'helio@email.com', '22');
 INSERT INTO CLIENTE(vatnumber,nome, email, idade) VALUES('IE777444222','Igor', 'igor@email.com', '15');
+INSERT INTO CATEGORIA(nome) VALUES('Programador');
+INSERT INTO CATEGORIA(nome) VALUES('Comerciante');

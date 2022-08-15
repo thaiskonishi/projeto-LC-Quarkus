@@ -1,6 +1,5 @@
 package br.com.letscode.model;
 
-import br.com.letscode.model.ClienteRepository;
 import java.util.List;
 import java.util.Optional;
 
