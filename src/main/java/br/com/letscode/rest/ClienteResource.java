@@ -29,14 +29,13 @@ import br.com.letscode.service.ClienteService;
 @Path("/cliente")
 @Produces(MediaType.APPLICATION_JSON)
 @Transactional
-@ApplicationScoped
 public class ClienteResource {
 
     @Inject
     ClienteService clienteService;
 
     @GET
-    @Path( "/lista" )
+    @Path("/lista")
     public List<ClienteDto> lista() {
         List<Cliente> clientes = clienteService.listaClientes();
         return ClienteDto.converter(clientes);
@@ -52,16 +51,16 @@ public class ClienteResource {
 
     @PUT
     @Path("/{id}")
-    public Response alteraDados(@PathParam("id") Long id, @Valid @RequestBody ClienteForm clienteForm) {  
-    Cliente cliente = clienteService.alteraDados(clienteForm, id);
-    if (cliente != null) {
-        return Response.status(Response.Status.OK).entity(new ClienteDto(cliente)).build();
-    }
-    return Response.status(Response.Status.NOT_FOUND).build();
-    
+    public Response alteraDados(@PathParam("id") Long id, @Valid @RequestBody ClienteForm clienteForm) {
+        Cliente cliente = clienteService.alteraDados(clienteForm, id);
+        if (cliente != null) {
+            return Response.status(Response.Status.OK).entity(new ClienteDto(cliente)).build();
+        }
+        return Response.status(Response.Status.NOT_FOUND).build();
+
     }
     // o clientForm é pra pegar no corpo da requisição e não da url
-  
+
     @DELETE
     @Path("/{id}")
     public Response deletar(@PathParam("id") Long id) {
@@ -72,11 +71,11 @@ public class ClienteResource {
         return Response.status(Response.Status.NOT_FOUND).build();
     }
 
-    @GET
-    @Path( "/{id}" )
-    public Cliente buscaPorId(@PathParam("id") Long id) {
-        Cliente cliente = clienteService.buscaCliente(id);
-        return cliente;
-    }
-    
+    // @GET
+    // @Path( "/{id}" )
+    // public Cliente buscaPorId(@PathParam("id") Long id) {
+    // Cliente cliente = clienteService.buscaCliente(id);
+    // return cliente;
+    // }
+
 }

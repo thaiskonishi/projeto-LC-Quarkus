@@ -28,14 +28,13 @@ import br.com.letscode.service.CategoriaService;
 @Path("/categoria")
 @Produces(MediaType.APPLICATION_JSON)
 @Transactional
-@ApplicationScoped
 public class CategoriaResource {
-    
+
     @Inject
     CategoriaService categoriaService;
 
     @GET
-    @Path( "/lista" )
+    @Path("/lista")
     public List<CategoriaDto> lista() {
         List<Categoria> categorias = categoriaService.listaCategorias();
         return CategoriaDto.converter(categorias);
@@ -52,16 +51,16 @@ public class CategoriaResource {
 
     @PUT
     @Path("/{idcategoria}")
-    public Response alteraDados(@PathParam("idcategoria") Long idcategoria, @RequestBody CategoriaForm categoriaForm) {  
-    Categoria categoria = categoriaService.alteraDados(categoriaForm, idcategoria);
-    if (categoria != null) {
-        return Response.status(Response.Status.OK).entity(new CategoriaDto(categoria)).build();
-    }
-    return Response.status(Response.Status.NOT_FOUND).build();
-    
+    public Response alteraDados(@PathParam("idcategoria") Long idcategoria, @RequestBody CategoriaForm categoriaForm) {
+        Categoria categoria = categoriaService.alteraDados(categoriaForm, idcategoria);
+        if (categoria != null) {
+            return Response.status(Response.Status.OK).entity(new CategoriaDto(categoria)).build();
+        }
+        return Response.status(Response.Status.NOT_FOUND).build();
+
     }
     // o clientForm é pra pegar no corpo da requisição e não da url
-  
+
     @DELETE
     @Path("/{idcategoria}")
     public Response deletar(@PathParam("idcategoria") Long idcategoria) {
@@ -71,5 +70,5 @@ public class CategoriaResource {
         }
         return Response.status(Response.Status.NOT_FOUND).build();
     }
-    
+
 }

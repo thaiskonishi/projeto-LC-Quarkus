@@ -8,10 +8,10 @@ import static io.restassured.RestAssured.given;
 @QuarkusTest
 public class CategoriaResourceTest {
     @Test
-    public void listaCategorias(){
+    public void listaCategorias() {
         given()
-            .when().get("/categoria/lista")
-            .then()
-            .statusCode(200);
+                .when().get("/categoria/lista")
+                .then()
+                .statusCode(200);
     }
 }
