@@ -1,4 +1,7 @@
-package br.com.letscode.model;
+package br.com.letscode.form;
+
+import br.com.letscode.model.Categoria;
+import br.com.letscode.repository.CategoriaRepository;
 
 public class CategoriaForm {
     

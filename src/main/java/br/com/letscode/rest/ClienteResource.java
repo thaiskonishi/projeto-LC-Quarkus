@@ -1,4 +1,4 @@
-package br.com.letscode.model;
+package br.com.letscode.rest;
 
 import java.net.URI;
 import java.util.List;
@@ -20,6 +20,11 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
+
+import br.com.letscode.dto.ClienteDto;
+import br.com.letscode.form.ClienteForm;
+import br.com.letscode.model.Cliente;
+import br.com.letscode.service.ClienteService;
 
 @Path("/cliente")
 @Produces(MediaType.APPLICATION_JSON)

@@ -1,7 +1,9 @@
-package br.com.letscode.model;
+package br.com.letscode.dto;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
+import br.com.letscode.model.Cliente;
 
 public class ClienteDto {
 

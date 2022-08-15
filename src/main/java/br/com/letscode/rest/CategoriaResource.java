@@ -1,4 +1,4 @@
-package br.com.letscode.model;
+package br.com.letscode.rest;
 
 import java.net.URI;
 import java.util.List;
@@ -19,6 +19,11 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
+
+import br.com.letscode.dto.CategoriaDto;
+import br.com.letscode.form.CategoriaForm;
+import br.com.letscode.model.Categoria;
+import br.com.letscode.service.CategoriaService;
 
 @Path("/categoria")
 @Produces(MediaType.APPLICATION_JSON)

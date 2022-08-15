@@ -1,9 +1,10 @@
-package br.com.letscode.model;
+package br.com.letscode.repository;
 
 import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
 
+import br.com.letscode.model.Cliente;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import io.quarkus.panache.common.Parameters;
 

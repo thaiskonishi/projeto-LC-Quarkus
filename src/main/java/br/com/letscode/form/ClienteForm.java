@@ -1,4 +1,4 @@
-package br.com.letscode.model;
+package br.com.letscode.form;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -7,6 +7,9 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
+
+import br.com.letscode.model.Cliente;
+import br.com.letscode.repository.ClienteRepository;
 
 public class ClienteForm {
 

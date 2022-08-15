@@ -1,4 +1,4 @@
-package br.com.letscode.model;
+package br.com.letscode.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,6 +15,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
+
+import br.com.letscode.form.CategoriaForm;
+import br.com.letscode.model.Categoria;
+import br.com.letscode.repository.CategoriaRepository;
 
 @Path("/categoria/lista")
 @RegisterRestClient(configKey = "quarkus-api")
