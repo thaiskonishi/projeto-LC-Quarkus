@@ -42,6 +42,7 @@ public class ClienteService {
     }
 
     @PUT
+    @Path("/{id}")
     @Transactional
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -69,5 +70,11 @@ public class ClienteService {
     }
     return null;
     
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Cliente buscaCliente(Long id) {
+        return clienteRepository.findById(id);
     }
 }

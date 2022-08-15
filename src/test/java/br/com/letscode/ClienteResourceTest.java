@@ -1,16 +1,29 @@
 package br.com.letscode;
 
+import org.hamcrest.CoreMatchers;
 import org.json.JSONObject;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 
+import br.com.letscode.model.Cliente;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+
+import io.quarkus.test.common.QuarkusTestResource;
 import io.quarkus.test.junit.QuarkusTest;
+import io.quarkus.test.h2.H2DatabaseTestResource;
+
 
 import static io.restassured.RestAssured.given;
 
 @QuarkusTest
+@QuarkusTestResource(H2DatabaseTestResource.class)
+@TestMethodOrder(OrderAnnotation.class)
 public class ClienteResourceTest {
   
     @Test
+    @Order(1)
     public void listaClientes(){
         given()
             .when().get("/cliente/lista")
@@ -18,30 +31,14 @@ public class ClienteResourceTest {
             .statusCode(200);
     }
 
-    //'ES012345678','Ana', 'ana@email.com', '19'
-    // @Test
-    // public void alteraDados(){
-    //     Cliente registroOriginal = given()
-    //     .when().get("/cliente/2")
-    //     .then()
-    //     .statusCode(200).extract().as(Cliente.class);
+    @Test
+    @Order(2)
+    public void deletaCliente(){
+        given()
+        .pathParam("id",1)
+        .when().delete("/cliente/{id}")
+        .then().statusCode(200);
 
-    //     JSONObject requestBody = new JSONObject()
-    //     .put("nome","Anna" )
-    //     .put("email","anna@email.com" )
-    //     .put("idade","29")
-    //     .put("vatnumber","ES012345678");
+    }
 
-    //     given()
-    //     .header("content-type","application/json")
-    //     .body(requestBody.toString())
-    //     .put("/cliente/2")
-    //     .then().statusCode(200).extract().as(Cliente.class);
-
-    //     Cliente registroAlterado = given()
-    //     .when().get("/cliente/2")
-    //     .then()
-    //     .statusCode(200).extract().as(Cliente.class);
-
-    // }
 }

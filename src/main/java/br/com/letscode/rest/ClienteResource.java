@@ -40,7 +40,6 @@ public class ClienteResource {
     public List<ClienteDto> lista() {
         List<Cliente> clientes = clienteService.listaClientes();
         return ClienteDto.converter(clientes);
-
     }
 
     @POST
@@ -71,6 +70,13 @@ public class ClienteResource {
             return Response.status(Response.Status.OK).entity(new ClienteDto(cliente)).build();
         }
         return Response.status(Response.Status.NOT_FOUND).build();
+    }
+
+    @GET
+    @Path( "/{id}" )
+    public Cliente buscaPorId(@PathParam("id") Long id) {
+        Cliente cliente = clienteService.buscaCliente(id);
+        return cliente;
     }
     
 }
