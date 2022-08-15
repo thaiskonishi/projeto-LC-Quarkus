@@ -52,6 +52,7 @@ public class ClienteService {
             clienteOptional.get().setEmail(clienteForm.getEmail());
             clienteOptional.get().setIdade(clienteForm.getIdade());
             clienteOptional.get().setVatnumber(clienteForm.getVatnumber());
+            clienteOptional.get().setIdcategoria(clienteForm.getIdCategoria());
             return clienteOptional.get();
         }
         return null;

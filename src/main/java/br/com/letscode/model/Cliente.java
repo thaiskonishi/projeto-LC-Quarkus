@@ -15,14 +15,16 @@ public class Cliente {
 	private String nome;
 	private String email;
 	private int idade;
+	private Long idcategoria;
 
 	public Cliente (){}
 
-	public Cliente(String vatnumber, String nome, String email, int idade) {
+	public Cliente(String vatnumber, String nome, String email, int idade, Long idcategoria) {
 		this.vatnumber = vatnumber;
 		this.nome = nome;
 		this.email = email;
 		this.idade = idade;
+		this.idcategoria = idcategoria;
 	}
 
     public String getVatnumber() {
@@ -63,5 +65,13 @@ public class Cliente {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+	public Long getIdcategoria() {
+		return idcategoria;
+	}
+
+	public void setIdcategoria(Long idcategoria) {
+		this.idcategoria = idcategoria;
 	}
 }

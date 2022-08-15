@@ -25,7 +25,15 @@ public class ClienteForm {
     private String email;
     @Min(18)
     private int idade;
+    private Long idcategoria;
 
+    public Long getIdCategoria(){
+        return idcategoria;
+    }
+
+    public void setIdCategoria(Long idcategoria){
+        this.idcategoria=idcategoria;
+    }
     public String getVatnumber() {
         return vatnumber;
     }
@@ -59,7 +67,7 @@ public class ClienteForm {
     }
 
     public Cliente converter() {
-        return new Cliente(vatnumber, nome, email, idade);
+        return new Cliente(vatnumber, nome, email, idade, idcategoria);
     }
 
     public Cliente alterarDados(Long id, ClienteRepository clienteRepository) {
@@ -68,7 +76,16 @@ public class ClienteForm {
         cliente.setIdade(this.idade);
         cliente.setNome(this.nome);
         cliente.setVatnumber(this.vatnumber);
+        cliente.setIdcategoria(idcategoria);
         return cliente;
 
+    }
+
+    public Long getIdcategoria() {
+        return idcategoria;
+    }
+
+    public void setIdcategoria(Long idcategoria) {
+        this.idcategoria = idcategoria;
     }
 }

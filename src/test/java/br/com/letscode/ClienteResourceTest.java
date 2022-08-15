@@ -3,9 +3,6 @@ package br.com.letscode;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 
-import com.google.gson.JsonObject;
-
-import br.com.letscode.model.Cliente;
 import io.quarkus.test.junit.QuarkusTest;
 
 import static io.restassured.RestAssured.given;
