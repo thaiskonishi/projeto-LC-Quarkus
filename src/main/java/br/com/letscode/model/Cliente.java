@@ -18,8 +18,8 @@ public class Cliente {
 	private String nome;
 	private String email;
 	private int idade;
-	@JoinColumn
-	@OneToMany
+	// @JoinColumn
+	// @OneToMany
 	private Categoria categoria;
 
 	public Cliente (){}

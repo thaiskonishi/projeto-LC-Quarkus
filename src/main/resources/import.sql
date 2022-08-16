@@ -1,18 +1,19 @@
--- This file allow to write SQL commands that will be emitted in test and dev.
--- The commands are commented as their support depends of the database
--- insert into myentity (id, field) values(nextval('hibernate_sequence'), 'field-1');
--- insert into myentity (id, field) values(nextval('hibernate_sequence'), 'field-2');
--- insert into myentity (id, field) values(nextval('hibernate_sequence'), 'field-3');
--- CREATE TABLE CATEGORIA
--- (nome VARCHAR(15),
--- idcategoria LONG primary key);
--- CREATE TABLE cliente
--- (vatnumber VARCHAR (11),
---  nome VARCHAR (100), 
---  email VARCHAR (30),
---  idade INT,
---  idcategoria LONG
--- id LONG PRIMARY KEY);
+-- CREATE TABLE IF NOT EXISTS CATEGORIA (
+--    icategoria LONG NOT NULL,
+--    nomeCategoria VARCHAR(15) NOT NULL,
+--    PRIMARY KEY (idcategoria)
+-- );
+
+-- CREATE TABLE IF NOT EXISTS CLIENTE (
+--    id LONG NOT NULL,
+--    name VARCHAR(100) NOT NULL,
+--    nome INT NOT NULL,
+--    vatnumber VARCHAR(11) NOT NULL,
+--    email VARCHAR(20) NOT NULL,
+--    categoria LONG NOT NULL,
+--    PRIMARY KEY (id),
+--    FOREIGN KEY (categoria) REFERENCES CATEGORIA(idcategoria)
+-- );
 INSERT INTO CATEGORIA(nome) VALUES('Programador');
 INSERT INTO CATEGORIA(nome) VALUES('Comerciante');
 INSERT INTO CATEGORIA(nome) VALUES('Autonomo');
