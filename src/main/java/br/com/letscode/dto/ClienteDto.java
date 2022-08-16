@@ -11,14 +11,14 @@ public class ClienteDto {
     private String nome;
     private String email;
     private int idade;
-    private Long idcategoria;
+    private String categoria;
 
     public ClienteDto(Cliente cliente) {
         this.vatnumber = cliente.getVatnumber();
         this.nome = cliente.getNome();
         this.email = cliente.getEmail();
         this.idade = cliente.getIdade();
-        this.idcategoria = cliente.getIdcategoria();
+        this.categoria = cliente.getCategoria().getNome();
     }
 
     public String getvatnumber() {
@@ -37,14 +37,11 @@ public class ClienteDto {
         return idade;
     }
 
-    public Long getIdcategoria() {
-        return idcategoria;
+    public String getCategoria() {
+        return categoria;
     }
 
-    public void setIdcategoria(Long idcategoria) {
-        this.idcategoria = idcategoria;
-    }
-
+    
     public static List<ClienteDto> converter(List<Cliente> clientes) {
         return clientes.stream().map(ClienteDto::new).collect(Collectors.toList());
     }

@@ -8,6 +8,7 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
+import br.com.letscode.model.Categoria;
 import br.com.letscode.model.Cliente;
 import br.com.letscode.repository.ClienteRepository;
 
@@ -25,14 +26,14 @@ public class ClienteForm {
     private String email;
     @Min(18)
     private int idade;
-    private Long idcategoria;
+    private Categoria categoria;
 
-    public Long getIdCategoria(){
-        return idcategoria;
+    public Categoria getCategoria(){
+        return categoria;
     }
 
-    public void setIdCategoria(Long idcategoria){
-        this.idcategoria=idcategoria;
+    public void setCategoria(Categoria Categoria){
+        this.categoria=Categoria;
     }
     public String getVatnumber() {
         return vatnumber;
@@ -67,7 +68,7 @@ public class ClienteForm {
     }
 
     public Cliente converter() {
-        return new Cliente(vatnumber, nome, email, idade, idcategoria);
+        return new Cliente(vatnumber, nome, email, idade, categoria);
     }
 
     public Cliente alterarDados(Long id, ClienteRepository clienteRepository) {
@@ -76,16 +77,10 @@ public class ClienteForm {
         cliente.setIdade(this.idade);
         cliente.setNome(this.nome);
         cliente.setVatnumber(this.vatnumber);
-        cliente.setIdcategoria(idcategoria);
+        cliente.setCategoria(categoria);
         return cliente;
 
     }
 
-    public Long getIdcategoria() {
-        return idcategoria;
-    }
-
-    public void setIdcategoria(Long idcategoria) {
-        this.idcategoria = idcategoria;
-    }
+    
 }
