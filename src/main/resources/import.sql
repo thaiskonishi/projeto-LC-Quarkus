@@ -1,13 +1,13 @@
 CREATE TABLE IF NOT EXISTS CATEGORIA (
-   icategoria LONG NOT NULL,
-   nomeCategoria VARCHAR(15) NOT NULL,
+   idategoria LONG NOT NULL,
+   nome VARCHAR(15) NOT NULL,
    PRIMARY KEY (idcategoria)
 );
 
 CREATE TABLE IF NOT EXISTS CLIENTE (
    id LONG NOT NULL,
-   name VARCHAR(100) NOT NULL,
-   nome INT NOT NULL,
+   nome VARCHAR(100) NOT NULL,
+   idade INT NOT NULL,
    vatnumber VARCHAR(11) NOT NULL,
    email VARCHAR(20) NOT NULL,
    idcategoria LONG NOT NULL,
