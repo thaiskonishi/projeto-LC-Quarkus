@@ -17,7 +17,8 @@ public class Cliente {
 	private int idade;
 	private Long idcategoria;
 
-	public Cliente (){}
+	public Cliente() {
+	}
 
 	public Cliente(String vatnumber, String nome, String email, int idade, Long idcategoria) {
 		this.vatnumber = vatnumber;
@@ -27,7 +28,7 @@ public class Cliente {
 		this.idcategoria = idcategoria;
 	}
 
-    public String getVatnumber() {
+	public String getVatnumber() {
 		return vatnumber;
 	}
 
@@ -66,7 +67,7 @@ public class Cliente {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public Long getIdcategoria() {
 		return idcategoria;
 	}
